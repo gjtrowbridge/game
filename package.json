@@ -1,0 +1,11 @@
+{
+  "name": "front-end-project-starter",
+  "version": "1.0.0",
+  "description": "A personal starting point for my front-end projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Greg Trowbridge",
+  "license": "ISC"
+}
