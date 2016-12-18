@@ -12,17 +12,25 @@ module.exports = {
     //    loader: 'jshint'
     //  }
     //],
-    //loaders: [
-    //  {
-    //    test: /\.scss$/,
-    //    loader: 'style!css!sass'
-    //  },
-    //  {
-    //    test: /\.(png|jpg|gif)$/,
-    //    include: /images/,
-    //    loader: 'file'
-    //  }
-    //]
+    loaders: [
+      {
+        test: '/\.js$/',
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      }
+      //{
+      //  test: /\.scss$/,
+      //  loader: 'style!css!sass'
+      //},
+      //{
+      //  test: /\.(png|jpg|gif)$/,
+      //  include: /images/,
+      //  loader: 'file'
+      //}
+    ]
   }
   //jshint: {
   //  esversion: 6
