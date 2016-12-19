@@ -4,6 +4,6 @@ import 'babel-polyfill';
 // http://stackoverflow.com/questions/35341994/uncaught-referenceerror-react-is-not-defined
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './js/App.jsx';
+import App from './js/App';
 
 ReactDom.render(<App />, document.getElementById('App'));

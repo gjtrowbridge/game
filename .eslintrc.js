@@ -6,7 +6,6 @@ module.exports = {
     "import"
   ],
   "rules": {
-    "import/extensions": "off",
     "react/prefer-stateless-function": "off",
   }
 };
