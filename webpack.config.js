@@ -1,11 +1,22 @@
+'use strict';
+
+const path = require('path');
+
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, 'src/index.jsx'),
   output: {
-    path: __dirname + '/dist/',
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/dist/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'eslint'
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
