@@ -10,6 +10,8 @@ module.exports = {
     // Necessary to let webpack-dev-server connect the dist folder to index.html
     publicPath: '/dist/'
   },
+  // Provides source maps.  Other options/docs here: https://webpack.github.io/docs/build-performance.html#sourcemaps
+  devtool: 'eval-cheap-module-source-map',
   // Allows importing of .jsx files without specifying the file suffix
   resolve: {
     extensions: ['', '.js', '.jsx']
