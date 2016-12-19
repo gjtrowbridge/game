@@ -13,3 +13,29 @@ The reason I'm building my own, and the only advantages that my tool will have o
 * I'll understand all of the "parts" of this repo, and can comment it to my heart's content.
 
 Obviously, anyone else is free to use this, but you may get better mileage with one of the more widely-used tools.
+
+## Usage / Commands
+
+* `npm run build`
+    * Compiles the JavaScript, CSS, etc, and outputs the result to dist/bundle.js
+* `npm run watch`
+    * Does the same as `npm run build`, but will watch files and update automatically if there are changes
+* `npm run webpack-dev-server`
+    * Very similar to `npm run watch`, but serves the results at http://localhost:8080/webpack-dev-server/
+    * Note that the link above will auto-update whenever you make changes to your app.
+    * Also note that this makes changes in-memory.
+        * In other words, **you will not see the changes outside of the dev website unless you run `npm run build`**
+    * http://localhost:8080/webpack-dev-server/ will also tell you if you have any lint errors or warnings.
+    * In my opinion, this is best/fastest when you are doing ongoing development.
+    
+## This repo currently supports
+* ES6
+* React / JSX
+* ESLint errors
+* Sourcemaps (allows you to see any errors/log messages as if they were coming from JSX directly, instead of from bundle.js)
+* SCSS compilation
+* Importing SCSS modules inline in your JavaScript code! (See js/App.jsx for an example)
+
+## Other notes
+* Webpack is awesome!  It makes all of the above fairly easy to setup.
+* I can't believe it took me this long to start using Webpack.
