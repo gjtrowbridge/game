@@ -36,6 +36,14 @@ Obviously, anyone else is free to use this, but you may get better mileage with 
 * SCSS compilation
 * Importing SCSS modules inline in your JavaScript code! (See js/App.jsx for an example)
 
+### webpack-dev-server in action
+* The sourcemaps point to the .jsx file (not bundle.js)
+* ESLint warning shows up at the top of the page
+* The SCSS file is required inline in App.jsx, and everything just works!
+![Image of webpack-dev-server in action](https://cloud.githubusercontent.com/assets/931171/21301185/114b7b74-c560-11e6-8489-8eb8a977af44.png)
+
+### ESLint in action
+![Image of built-in ESLint checking in action](https://cloud.githubusercontent.com/assets/931171/21301186/128dc316-c560-11e6-8fb9-0bdb5943c27e.png)
+
 ## Other notes
-* Webpack is awesome!  It makes all of the above fairly easy to setup.
-* I can't believe it took me this long to start using Webpack.
+* Webpack is awesome! I can't believe I didn't explore it sooner.
