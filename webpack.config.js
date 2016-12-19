@@ -1,38 +1,19 @@
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: __dirname + '/public/assets/',
+    path: __dirname + '/dist/',
     filename: 'bundle.js'
   },
   module: {
-    //preLoaders: [
-    //  {
-    //    test: /\.js$/,
-    //    exclude: /node_modules/,
-    //    loader: 'jshint'
-    //  }
-    //],
     loaders: [
       {
-        test: '/\.js$/',
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react']
         }
       }
-      //{
-      //  test: /\.scss$/,
-      //  loader: 'style!css!sass'
-      //},
-      //{
-      //  test: /\.(png|jpg|gif)$/,
-      //  include: /images/,
-      //  loader: 'file'
-      //}
     ]
   }
-  //jshint: {
-  //  esversion: 6
-  //}
 };
