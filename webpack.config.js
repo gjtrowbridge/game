@@ -3,9 +3,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/index.jsx'),
+  context: __dirname,
+  entry: path.resolve(__dirname, './src/index.jsx'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
     // Necessary to let webpack-dev-server connect the dist folder to index.html
     publicPath: '/dist/'
@@ -14,7 +15,11 @@ module.exports = {
   devtool: 'eval-cheap-module-source-map',
   // Allows importing of .jsx files without specifying the file suffix
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    alias: {
+      CSS: path.resolve(__dirname, './src/css'),
+      Components: path.resolve(__dirname, './src/js'),
+    },
+    extensions: ['', '.js', '.jsx'],
   },
   module: {
     preLoaders: [
