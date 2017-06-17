@@ -1,0 +1,4 @@
+/* Necessary for Jest, NOT necessary for webpack */
+{
+  "presets": ["es2015", "react"]
+}
