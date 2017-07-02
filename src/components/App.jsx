@@ -1,11 +1,17 @@
 import React from 'react';
+import GithubUserSearch from 'Components/GithubUserSearch.jsx';
 
 // CSS
 import 'CSS/App.scss';
 
 class App extends React.Component {
   render() {
-    return <h1 className="App">Hello from Webpack!</h1>;
+    return (
+      <div className="App">
+        <h1>Welcome to front-end-project-starter</h1>
+        <GithubUserSearch />
+      </div>
+    );
   }
 }
 
