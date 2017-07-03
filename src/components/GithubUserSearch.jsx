@@ -11,6 +11,12 @@ class GithubUserSearch extends React.Component {
           Search for github user: <input id="search-github-user" />
         </label>
         <button>Go</button>
+        <div>
+          <h2>Repositories Found:</h2>
+          <ul>
+            <li>None</li>
+          </ul>
+        </div>
       </div>
     );
   }
