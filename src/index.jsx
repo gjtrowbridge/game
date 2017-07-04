@@ -5,11 +5,17 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from 'Reducers/root';
 import App from 'Components/App';
+import reduxThunk from 'redux-thunk';
 
-let store = createStore(rootReducer);
+let store = createStore(
+  rootReducer,
+  applyMiddleware(
+    reduxThunk,
+  ),
+);
 
 ReactDom.render(
   <Provider store={store}>

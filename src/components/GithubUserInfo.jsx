@@ -1,4 +1,4 @@
-import { getGithubUserInfo } from 'Actions/actions';
+import { fetchGithubUserInfo } from 'Actions/actions';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -46,7 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   const onButtonClick = () => {
-    dispatch(getGithubUserInfo('gjtrowbridge', ['repo1', 'repo2', 'repo3']));
+    dispatch(fetchGithubUserInfo('gjtrowbridge', ['repo1', 'repo2', 'repo3']));
   };
   return {
     onButtonClick,
