@@ -1,7 +1,8 @@
+import { combineReducers } from 'redux';
+import githubUserInfo from 'Reducers/githubUserInfo';
 
-const initialState = {};
+const rootReducer = combineReducers({
+  githubUserInfo,
+});
 
-export default function rootReducer(state = initialState, action) {
-  console.log('action', action);
-  return state;
-}
+export default rootReducer;

@@ -16,8 +16,10 @@ module.exports = {
   // Allows importing of .jsx files without specifying the file suffix
   resolve: {
     alias: {
+      Actions: path.resolve(__dirname, './src/actions'),
       CSS: path.resolve(__dirname, './src/css'),
       Components: path.resolve(__dirname, './src/components'),
+      Reducers: path.resolve(__dirname, './src/reducers'),
     },
     extensions: ['', '.js', '.jsx'],
   },

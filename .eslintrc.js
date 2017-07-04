@@ -12,7 +12,13 @@ module.exports = {
     // No annoying import errors if missing extensions
     'import/extensions': 'off',
 
-    // Allows importing of unresolved modules (primary purpose here is to not lint cases
+    // Turns off check for arrow function braces
+    'arrow-body-style': 'off',
+
+    // Don't fail if named exports are used in lieu of default exports
+    'import/prefer-default-export': 'off',
+
+  // Allows importing of unresolved modules (primary purpose here is to not lint cases
     // where webpack is helping resolve packages from the root directory, for example)
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off'

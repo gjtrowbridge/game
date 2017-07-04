@@ -1,5 +1,5 @@
 import React from 'react';
-import GithubUserSearch from 'Components/GithubUserSearch.jsx';
+import GithubUserInfo from 'Components/GithubUserInfo.jsx';
 
 // CSS
 import 'CSS/App.scss';
@@ -9,7 +9,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Welcome to front-end-project-starter</h1>
-        <GithubUserSearch />
+        <GithubUserInfo />
       </div>
     );
   }

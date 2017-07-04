@@ -1,15 +1,15 @@
 
-const GET_GITHUB_USER_INFO = 'GET_GITHUB_USER_INFO';
+export const GET_GITHUB_USER_INFO = 'GET_GITHUB_USER_INFO';
 
 // Helper function used by other action creators -- creates an action
 // Follows standard here: https://github.com/acdlite/flux-standard-action
-const _getAction = function _getAction(type, payload, is_error, meta) => {
-  const action = { type: type };
+const getAction = function _getAction(type, payload, isError, meta) {
+  const action = { type };
   if (payload !== undefined) {
     action.payload = payload;
   }
-  if (is_error !== undefined) {
-    action.error = is_error;
+  if (isError !== undefined) {
+    action.error = isError;
   }
   if (meta !== undefined) {
     action.meta = meta;
@@ -18,9 +18,9 @@ const _getAction = function _getAction(type, payload, is_error, meta) => {
   return action;
 };
 
-export const getGithubUserInfo = function getGithubUserInfo(username) {
-  return _getAction(
+export const getGithubUserInfo = function getGithubUserInfo(username, repositoriesFound) {
+  return getAction(
     GET_GITHUB_USER_INFO,
-    { username: username }
+    { username, repositoriesFound },
   );
 };
