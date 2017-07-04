@@ -7,6 +7,17 @@ import { connect } from 'react-redux';
 import 'CSS/GithubUserInfo.scss';
 
 class GithubUserInfo extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    this.props.onUpdateUsername(this.input.value);
+    event.preventDefault();
+  }
+
   render() {
     const repoListItems = this.props.repositoriesFound.map((repoName, index) => {
       return <li key={index}>{repoName}</li>;
@@ -14,10 +25,13 @@ class GithubUserInfo extends React.Component {
 
     return (
       <div className="GithubUserInfo">
-        <label htmlFor="search-github-user">
-          Search for github user: <input id="search-github-user" />
-        </label>
-        <button onClick={this.props.onButtonClick}>Go</button>
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="search-github-user">
+            Search for github user:
+            <input id="search-github-user" ref={(input) => { this.input = input; }} />
+          </label>
+          <input type="submit" value="Go" />
+        </form>
         <div>
           <h2>Repositories Found:</h2>
           <ul>
@@ -30,14 +44,8 @@ class GithubUserInfo extends React.Component {
 }
 
 GithubUserInfo.propTypes = {
-  repositoriesFound: PropTypes.arrayOf(PropTypes.string),
-  onButtonClick: PropTypes.func,
-};
-GithubUserInfo.defaultProps = {
-  repositoriesFound: [],
-  onButtonClick: () => {
-    console.log('button was clicked: ', arguments);
-  },
+  repositoriesFound: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onUpdateUsername: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => {
@@ -45,11 +53,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  const onButtonClick = () => {
-    dispatch(fetchGithubUserInfo('gjtrowbridge', ['repo1', 'repo2', 'repo3']));
+  const onUpdateUsername = (username) => {
+    dispatch(fetchGithubUserInfo(username, ['repo1', 'repo2', 'repo3']));
   };
   return {
-    onButtonClick,
+    onUpdateUsername,
   };
 };
 

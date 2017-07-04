@@ -49,6 +49,11 @@ export const fetchGithubUserInfo = function fetchGithubUserInfo(username) {
 
       // If request is successful, pull out json and pass to next "then" block
       (response) => {
+        if (response.status === 404) {
+          return [{
+            name: '404: username not found',
+          }];
+        }
         return response.json();
       },
 
@@ -61,8 +66,8 @@ export const fetchGithubUserInfo = function fetchGithubUserInfo(username) {
         ));
       },
     ).then(
+      // Parse the json response and dispatch the resulting repo info as an action
       (json) => {
-        console.log(typeof json, json);
         const repositoriesFound = json.map((repositoryInfo) => {
           return repositoryInfo.name;
         });

@@ -21,9 +21,13 @@ export default function githubUserInfoReducer(state = defaultState, action) {
     }
 
     // Handle success
+    let repositoriesFound = ['None'];
+    if (action.payload.repositoriesFound.length > 0) {
+      repositoriesFound = action.payload.repositoriesFound;
+    }
     return {
       name: action.payload.username,
-      repositoriesFound: action.payload.repositoriesFound,
+      repositoriesFound,
     };
   }
   return state;
