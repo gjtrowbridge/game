@@ -13,6 +13,7 @@ module.exports = {
   },
   // Provides source maps.  Other options/docs here: https://webpack.github.io/docs/build-performance.html#sourcemaps
   devtool: 'eval-cheap-module-source-map',
+  historyApiFallback: true,
   // Allows importing of .jsx files without specifying the file suffix
   resolve: {
     alias: {

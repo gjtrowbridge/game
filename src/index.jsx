@@ -8,7 +8,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from 'Reducers/root';
 import App from 'Components/App';
+import AlternativePage from 'Components/AlternativePage';
 import reduxThunk from 'redux-thunk';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 let store = createStore(
   rootReducer,
@@ -19,7 +21,12 @@ let store = createStore(
 
 ReactDom.render(
   <Provider store={store}>
-    <App />
+    <HashRouter>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/alternative" component={AlternativePage} />
+      </Switch>
+    </HashRouter>
   </Provider>,
   document.getElementById('App')
 );
