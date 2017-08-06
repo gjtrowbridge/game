@@ -15,7 +15,10 @@
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/fileMock.js",
-      "^Components(.*)$": "<rootDir>/src/js$1"
+
+      "^Components(.*)$": "<rootDir>/src/components$1",
+      "^Actions(.*)$": "<rootDir>/src/actions$1",
+      "^Reducers(.*)$": "<rootDir>/src/reducers$1"
     }
   },
   "author": "Greg Trowbridge",
