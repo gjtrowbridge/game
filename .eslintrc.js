@@ -18,9 +18,12 @@ module.exports = {
     // Don't fail if named exports are used in lieu of default exports
     'import/prefer-default-export': 'off',
 
-  // Allows importing of unresolved modules (primary purpose here is to not lint cases
+    // Allows importing of unresolved modules (primary purpose here is to not lint cases
     // where webpack is helping resolve packages from the root directory, for example)
     'import/no-unresolved': 'off',
-    'import/no-extraneous-dependencies': 'off'
+    'import/no-extraneous-dependencies': 'off',
+
+    // Gives me access to window-level vars
+    'no-undef': 'off'
   }
 };

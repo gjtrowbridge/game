@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import githubUserInfo from 'Reducers/githubUserInfo';
+import game from 'Reducers/game';
 
 const rootReducer = combineReducers({
-  githubUserInfo,
+  game,
 });
 
 export default rootReducer;
