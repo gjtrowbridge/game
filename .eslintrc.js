@@ -23,7 +23,10 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
 
-    // Gives me access to window-level vars
-    'no-undef': 'off'
+    // Turn off a bunch of other lint rules that annoy me
+    'no-undef': 'off',
+    'no-plusplus': 'off',
+    'react/forbid-prop-types': 'off',
+    'no-mixed-operators': 'off',
   }
 };
