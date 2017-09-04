@@ -28,5 +28,6 @@ module.exports = {
     'no-plusplus': 'off',
     'react/forbid-prop-types': 'off',
     'no-mixed-operators': 'off',
+    'spaced-comment': 'warn',
   }
 };

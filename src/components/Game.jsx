@@ -13,7 +13,11 @@ class Game extends React.Component {
     // TODO: Make this a ref?
     this.canvas = document.getElementById('game-canvas');
     this.context = this.canvas.getContext('2d');
-    console.log(this.props);
+
+    // Create images
+    this.tree_img = document.getElementById('tree');
+    this.hero_img = document.getElementById('hero');
+
     this.drawGameOnCanvas();
   }
   drawGameOnCanvas() {
@@ -41,13 +45,14 @@ class Game extends React.Component {
 
     // Draw all items on the grid
     game.items.forEach((item) => {
-      const xCenter = ((item.column - 0.5) / game.columns) * this.props.width;
-      const yCenter = ((item.row - 0.5) / game.rows) * this.props.height;
-      console.log('drawing', item, xCenter, yCenter);
+      const xLeft = (item.column / game.columns) * this.props.width;
+      const yTop = (item.row / game.rows) * this.props.height;
 
-      this.context.beginPath();
-      this.context.arc(xCenter, yCenter, columnWidth / 2, 0, 2 * Math.PI);
-      this.context.stroke();
+      if (item.type === 'tree') {
+        this.context.drawImage(this.tree_img, xLeft + 1, yTop + 1, columnWidth - 2, rowHeight - 2);
+      } else if (item.type === 'hero') {
+        this.context.drawImage(this.hero_img, xLeft + 1, yTop + 1, columnWidth - 2, rowHeight - 2);
+      }
     });
   }
   render() {
