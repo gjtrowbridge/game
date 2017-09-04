@@ -3,3 +3,9 @@ $color: white;
 .App {
   background-color: $color;
 }
+
+#App div.column {
+  margin: 10px;
+  vertical-align: top;
+  display: inline-block;
+}
