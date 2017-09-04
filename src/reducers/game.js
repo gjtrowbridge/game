@@ -1,7 +1,8 @@
 import { UPDATE_GAME_STATE } from 'Actions/game';
 
+// Return a random integer, incl. of min and max
 const getRandomInt = function getRandomInt(min = 0, max = 10) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 const defaultState = {
@@ -9,23 +10,30 @@ const defaultState = {
   columns: 10,
   items: [
     {
-      row: 1,
-      column: 1,
+      row: 0,
+      column: 0,
       type: 'hero',
-    },
-    {
-      row: 10,
-      column: 10,
-      type: 'goal',
     },
   ],
 };
-for (let i = 0; i < 40; i++) {
-  defaultState.items.push({
-    row: getRandomInt(),
-    column: getRandomInt(),
-    type: 'tree',
-  });
+for (let column = 1; column < defaultState.columns; column += getRandomInt(2, 3)) {
+  const gapRow = getRandomInt(0, 10);
+  for (let row = 0; row < defaultState.rows; row++) {
+    if (row !== gapRow) {
+      defaultState.items.push({
+        row,
+        column,
+        type: 'tree',
+      });
+    }
+  }
+  if (column === defaultState.columns - 1) {
+    defaultState.items.push({
+      gapRow,
+      column,
+      type: 'goal',
+    });
+  }
 }
 
 
