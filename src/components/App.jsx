@@ -14,6 +14,4 @@ class App extends React.Component {
   }
 }
 
-console.log('This is an example log statement to demonstrate sourcemaps.');
-
 export default App;
