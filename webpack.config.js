@@ -21,6 +21,7 @@ module.exports = {
       CSS: path.resolve(__dirname, './src/css'),
       Components: path.resolve(__dirname, './src/components'),
       Reducers: path.resolve(__dirname, './src/reducers'),
+      Game: path.resolve(__dirname, './src/game'),
     },
     extensions: ['', '.js', '.jsx'],
   },

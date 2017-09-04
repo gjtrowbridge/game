@@ -1,4 +1,4 @@
 
-export default function gameExecutor(game, instruction) {
-  game.items.forEach()
+const executeTurn = function executeTurn(instruction) {
+
 };

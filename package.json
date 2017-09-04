@@ -18,7 +18,8 @@
 
       "^Components(.*)$": "<rootDir>/src/components$1",
       "^Actions(.*)$": "<rootDir>/src/actions$1",
-      "^Reducers(.*)$": "<rootDir>/src/reducers$1"
+      "^Reducers(.*)$": "<rootDir>/src/reducers$1",
+      "^Game(.*)$": "<rootDir>/src/game$1"
     }
   },
   "author": "Greg Trowbridge",
