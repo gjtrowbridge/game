@@ -1,7 +1,7 @@
 import { UPDATE_GAME_STATE } from 'Actions/game';
 
 // Return a random integer, incl. of min and max
-const getRandomInt = function getRandomInt(min = 0, max = 10) {
+const getRandomInt = function getRandomInt(min = 0, max = 9) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
@@ -17,7 +17,7 @@ const defaultState = {
   ],
 };
 for (let column = 1; column < defaultState.columns; column += getRandomInt(2, 3)) {
-  const gapRow = getRandomInt(0, 10);
+  const gapRow = getRandomInt(0, 9);
   for (let row = 0; row < defaultState.rows; row++) {
     if (row !== gapRow) {
       defaultState.items.push({
