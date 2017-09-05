@@ -52,8 +52,6 @@ class Game extends React.Component {
   }
   // Draw the game state on the canvas
   drawGameOnCanvas() {
-    // TODO: Make this a ref?
-    this.canvas = document.getElementById('game-canvas');
     this.context = this.canvas.getContext('2d');
 
     const game = this.props.game;
@@ -99,7 +97,12 @@ class Game extends React.Component {
   }
   render() {
     return (
-      <canvas id="game-canvas" height={this.props.height} width={this.props.width} />
+      <canvas
+        id="game-canvas"
+        height={this.props.height}
+        width={this.props.width}
+        ref={(canvas) => { this.canvas = canvas; }}
+      />
     );
   }
 }
