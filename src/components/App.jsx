@@ -15,12 +15,40 @@ import 'CSS/App.scss';
 
 const updateTimer = 2000;
 
+const defaultEditorContents = `var possibleMoves = [
+  'North',
+  'South',
+  'East',
+  'West',
+];
+
+// The "move" function is your "brain"
+// It tells your character what to do each turn
+var move = function(gameState) {
+  // You can see the game state
+  // (or any other state) in your console
+  console.log('Game State is: ', gameState);
+
+  // This "example" brain is rather scattered:
+  // It chooses a random direction each turn
+  var randomNumber = Math.random();
+  if (randomNumber < 0.25) {
+    return possibleMoves[0];
+  } else if (randomNumber < 0.5) {
+    return possibleMoves[1];
+  } else if (randomNumber < 0.75) {
+    return possibleMoves[2];
+  } else {
+    return possibleMoves[3];
+  }
+};
+`;
+
 class App extends React.Component {
   componentDidMount() {
+    this.aceEditor.setValue(defaultEditorContents);
     setInterval(() => {
       if (this.props.isExecuting) {
-        console.log('xcxc', this.aceEditor.getValue());
-        //const editor = this.refs.aceEditor;
         this.props.dispatch(updateGameState(this.props.game));
       }
     }, updateTimer);
@@ -35,7 +63,7 @@ class App extends React.Component {
             theme="monokai"
             name="UNIQUE_ID_OF_DIV"
             fontSize="18px"
-            width="500px"
+            width="700px"
             height="500px"
             editorProps={{
               $blockScrolling: true,

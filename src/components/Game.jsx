@@ -23,7 +23,6 @@ class Game extends React.Component {
   }
   componentDidUpdate() {
     if (this.imagesAreLoaded()) {
-      console.log('loading game to canvas');
       this.drawGameOnCanvas();
     }
   }
