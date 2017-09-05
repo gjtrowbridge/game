@@ -22,6 +22,9 @@
       "^Game(.*)$": "<rootDir>/src/game$1"
     }
   },
+  "engines": {
+    "node": "7.4.0"
+  },
   "author": "Greg Trowbridge",
   "license": "ISC",
   "devDependencies": {
