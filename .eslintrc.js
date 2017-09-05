@@ -29,5 +29,6 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'no-mixed-operators': 'off',
     'spaced-comment': 'warn',
+    'react/no-string-refs': 'off',
   }
 };

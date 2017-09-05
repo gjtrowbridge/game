@@ -13,34 +13,19 @@ import 'brace/theme/monokai';
 // CSS
 import 'CSS/App.scss';
 
-function onChange(newValue) {
-  console.log('change', newValue);
-}
-
 const updateTimer = 2000;
-let count = 0;
 
 class App extends React.Component {
-  componentDidUpdate() {
+  componentDidMount() {
+    setInterval(() => {
+      if (this.props.isExecuting) {
+        console.log('xcxc', this.aceEditor.getValue());
+        //const editor = this.refs.aceEditor;
+        this.props.dispatch(updateGameState(this.props.game));
+      }
+    }, updateTimer);
   }
   render() {
-    console.log('yo yo yo', this.props);
-    if (this.props.isExecuting) {
-      // Schedule next update
-      setTimeout(() => {
-        console.log('doing new turn');
-        const newGameState = {
-          ...this.props.game,
-        };
-        newGameState.items.push({
-          row: count,
-          column: count,
-          type: 'tree',
-        });
-        count++;
-        this.props.dispatch(updateGameState(newGameState));
-      }, updateTimer);
-    }
     return (
       <div className="App">
         <div className="column editor">
@@ -48,7 +33,6 @@ class App extends React.Component {
           <AceEditor
             mode="javascript"
             theme="monokai"
-            onChange={onChange}
             name="UNIQUE_ID_OF_DIV"
             fontSize="18px"
             width="500px"
@@ -56,6 +40,7 @@ class App extends React.Component {
             editorProps={{
               $blockScrolling: true,
             }}
+            ref={(aceEditorComponent) => { this.aceEditor = aceEditorComponent.editor; }}
           />
         </div>
         <div className="column game">
