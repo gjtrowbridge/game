@@ -22,7 +22,7 @@ const defaultEditorContents = `var possibleMoves = [
   'West',
 ];
 
-// The "move" function is your "brain"
+// The "move" function is your character's "brain"
 // It tells your character what to do each turn
 var move = function(gameState) {
   // You can see the game state
