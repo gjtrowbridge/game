@@ -33,15 +33,18 @@ var move = function(gameState) {
   // This "example" brain is rather scattered:
   // It chooses a random direction each turn
   var randomNumber = Math.random();
+  var instruction = 'NOWHERE';
   if (randomNumber < 0.25) {
-    return possibleMoves[0];
+    instruction = possibleMoves[0];
   } else if (randomNumber < 0.5) {
-    return possibleMoves[1];
+    instruction = possibleMoves[1];
   } else if (randomNumber < 0.75) {
-    return possibleMoves[2];
+    instruction = possibleMoves[2];
   } else {
-    return possibleMoves[3];
+    instruction = possibleMoves[3];
   }
+  console.log('moving:', instruction);
+  return instruction;
 };
 
 // This is necessary! For reasons.
@@ -61,7 +64,6 @@ class App extends React.Component {
         } catch (e) {
           console.log('Error in move function:', e);
         }
-        console.log('Moving: ', nextInstruction);
         this.props.dispatch(updateGameState(executeTurn(nextInstruction).toHash()));
       }
     }, updateTimer);
