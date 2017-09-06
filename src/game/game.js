@@ -1,8 +1,3 @@
-
-const items = require('../game/items');
-
-const { BoardItem } = items;
-
 class Game {
   constructor(rows, columns) {
     this.rows = rows;
@@ -16,7 +11,7 @@ class Game {
     for (let row = 0; row < rows; row++) {
       const newRow = [];
       for (let column = 0; column < columns; column++) {
-        newRow.push({})
+        newRow.push({});
       }
       this.board.push(newRow);
     }
@@ -40,14 +35,12 @@ class Game {
   _removeItemFromBoard(item) {
     delete this.board[item.row][item.column][item.id];
   }
+
+  toHash() {
+    return JSON.parse(JSON.stringify(this));
+  }
 }
 
-const g = new Game(10, 10);
-const hero = new BoardItem(0, 5, 'hero', {
-  'hp': 100,
-  'kills': 5,
-});
-console.log(JSON.stringify(g));
-console.log(JSON.stringify(hero));
-
-module.exports.default = Game;
+module.exports = {
+  Game,
+};

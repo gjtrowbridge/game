@@ -30,5 +30,9 @@ module.exports = {
     'no-mixed-operators': 'off',
     'spaced-comment': 'warn',
     'react/no-string-refs': 'off',
+    'no-underscore-dangle': 'off',
+    'no-eval': 'warn',
+    'react/no-unused-prop-types': 'warn',
+    'no-unused-vars': 'warn',
   }
 };

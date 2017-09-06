@@ -80,7 +80,7 @@ class Game extends React.Component {
     this.context.stroke();
 
     // Draw all items on the grid
-    game.items.forEach((item) => {
+    Object.values(game.items).forEach((item) => {
       const xLeft = (item.column / game.columns) * this.props.width;
       const yTop = (item.row / game.rows) * this.props.height;
 

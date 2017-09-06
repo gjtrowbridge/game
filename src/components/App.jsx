@@ -3,6 +3,7 @@ import Game from 'Components/Game';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { updateGameState } from 'Actions/game';
+import { executeTurn, game } from 'Game/gameExecutor';
 
 // Ace editor
 import 'brace';
@@ -42,6 +43,10 @@ var move = function(gameState) {
     return possibleMoves[3];
   }
 };
+
+// This is necessary! For reasons.
+// Look, just don't remove it, ok?
+move;
 `;
 
 class App extends React.Component {
@@ -49,7 +54,15 @@ class App extends React.Component {
     this.aceEditor.setValue(defaultEditorContents);
     setInterval(() => {
       if (this.props.isExecuting) {
-        this.props.dispatch(updateGameState(this.props.game));
+        let nextInstruction = 'NOWHERE';
+        try {
+          const move = eval(this.aceEditor.getValue());
+          nextInstruction = move(game.toHash());
+        } catch (e) {
+          console.log('Error in move function:', e);
+        }
+        console.log('Moving: ', nextInstruction);
+        this.props.dispatch(updateGameState(executeTurn(nextInstruction).toHash()));
       }
     }, updateTimer);
   }
@@ -68,7 +81,11 @@ class App extends React.Component {
             editorProps={{
               $blockScrolling: true,
             }}
-            ref={(aceEditorComponent) => { this.aceEditor = aceEditorComponent.editor; }}
+            ref={(aceEditorComponent) => {
+              if (aceEditorComponent !== null) {
+                this.aceEditor = aceEditorComponent.editor;
+              }
+            }}
           />
         </div>
         <div className="column game">
@@ -83,13 +100,13 @@ class App extends React.Component {
 App.propTypes = {
   dispatch: PropTypes.func.isRequired,
   isExecuting: PropTypes.bool.isRequired,
-  game: PropTypes.object.isRequired,
+  //game: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => {
   return {
     isExecuting: state.app.isExecuting,
-    game: state.game,
+    //game: state.game,
   };
 };
 

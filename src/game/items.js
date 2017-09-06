@@ -12,9 +12,7 @@ class BoardItem {
     this.row = row;
     this.column = column;
     this.type = type;
-    for (let key in otherProperties) {
-      this[key] = otherProperties[key];
-    }
+    this.otherProperties = otherProperties;
   }
 }
 
@@ -40,4 +38,5 @@ module.exports = {
   BoardItem,
   Goal,
   Hero,
+  Tree,
 };
